@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Service
+MimeType=video/*;
+Actions=ConvertToMOV
+X-KDE-Priority=TopLevel
+Icon=video-x-generic
+
+[Desktop Action ConvertToMOV]
+Name=Converter para MOV (MPEG4)
+Icon=video-x-generic
+Exec=bash -c 'for f in %F; do ffmpeg -i "$f" -c:v mpeg4 -map 0 -q:v 0 -codec:a pcm_s16le "${f%.*}-converted.mov"; done'
